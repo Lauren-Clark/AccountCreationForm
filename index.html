@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery New Account Creation Form</title>
+
+</head>
+<body>
+	<h1>jQuery New Account Creation Form</h1>
+		<form id="new-account-form">
+			<p><input type="email" size="30" name="email" value="" placeholder="Enter your email address"></p>
+			<p><input type="text" size="30" name="password1" value="" placeholder="Enter a password"></p>
+			<p><input type="text" size="30" name="password2" value="" placeholder="Reenter the password"></p>
+			<button type="submit">Create Account</button>
+		</form>
+	<p>Form Output: <span id="output"></span></p>
+
+
+<!-- validate email (make sure has @ and .com)
+	display the email
+	make sure output for passwords matches, if not matching - display they do not match"
+-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+	//$("submit").click(function() {
+	// prevent the page from reloading
+	$("#new-account-form").on("submit", function(event) {
+        event.preventDefault();
+
+	// select the email input by name
+	var email = $("input[name=email").val();
+	$("#output").append("<br><br>" + email).val();
+
+	// append to the bottom of paragraph named span
+	
+
+	// select the password by name
+	// set variables to each input value
+	// need to select the actual VALUE by using .val
+	// use the input[name=NAMEID] to get the name
+	var password1 = $("input[name=password1").val();
+	var password2 = $("input[name=password2").val();
+
+	// create expression with if/else statement 
+	// use $(#ID of where the output is (in this case span above has id of "output"))
+	//use the .append with the text you want to add, using <br> for a line break
+	 if (password1 === password2) {
+		$("#output").append("<br> Passwords match!");
+    } else {
+		$("#output").append("<br> Passwords do not match");
+	} 
+  
+  });
+
+
+
+</script>
+</body>
+</html>
+
+<!-- jQuery selector of name site:
+	https://stackoverflow.com/questions/2109472/how-to-get-a-value-of-an-element-by-name-instead-of-id
+
+
+($("#input[name=password1").val() == $("#input[name=password2").val() )
+	-->
